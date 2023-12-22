@@ -18,6 +18,7 @@ OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
 
 class ChatGPTSession(ChatSession):
     api_url: HttpUrl = os.getenv("SIMPLEAICHAT_API_URL", OPENAI_API_URL)
+    api_url: HttpUrl = "https://aps-azure-openai.openai.azure.com/openai/deployments/aps_azure_gpt/chat/completions?api-version=2023-07-01-preview"
     input_fields: Set[str] = {"role", "content", "name"}
     system: str = "You are a helpful assistant."
     params: Dict[str, Any] = {"temperature": 0.7}
